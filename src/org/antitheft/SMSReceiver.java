@@ -60,19 +60,4 @@ public class SMSReceiver extends BroadcastReceiver
 			}
 		}
 	}
-
-	public static String crypt(String message, int key)
-	{
-		char[] mesg = message.toCharArray();
-
-		int ml = mesg.length;
-		char[] newmsg = new char[ml];
-
-		for(int i = 0; i < ml; i++)
-		{
-			newmsg[i] = (char)(mesg[i]^key);
-		}
-
-		return new String(newmsg);
-	}
 }
