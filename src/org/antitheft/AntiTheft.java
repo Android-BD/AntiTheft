@@ -49,7 +49,7 @@ public class AntiTheft extends Activity
 		editNumber.setText(settings.getString("number", ""));
 		editInterval.setText(Integer.toString(settings.getInt("interval", 20)/60000));
 
-		if(!Locale.getDefault().getDisplayLanguage().toString().equals("français"))
+		if(!Locale.getDefault().getDisplayLanguage().toString().equals("franï¿½ais"))
 		{
 			english = true;
 
@@ -82,11 +82,11 @@ public class AntiTheft extends Activity
 						//Commit the preferences edits
 						editor.commit();
 
-						Log.e("AntiTheft", "Configuration du mot de passe et du numéro OK!");
+						Log.e("AntiTheft", "Configuration du mot de passe et du numï¿½ro OK!");
 
 						if(!english)
 						{
-							Toast.makeText(AntiTheft.this, "Configuration OK!\nMot de passe: "+editMagicWord.getText()+"\nNuméro: "+editNumber.getText()+"\nIntervalle: "+editInterval.getText()+"min(s)", Toast.LENGTH_LONG).show();
+							Toast.makeText(AntiTheft.this, "Configuration OK!\nMot de passe: "+editMagicWord.getText()+"\nNumï¿½ro: "+editNumber.getText()+"\nIntervalle: "+editInterval.getText()+"min(s)", Toast.LENGTH_LONG).show();
 						}
 						else
 						{
@@ -129,20 +129,5 @@ public class AntiTheft extends Activity
 	protected void onDestroy()
 	{
 		super.onDestroy();
-	}
-
-	public static String crypt(String message, int key)
-	{
-		char[] mesg = message.toCharArray();
-
-		int ml = mesg.length;
-		char[] newmsg = new char[ml];
-
-		for(int i = 0; i < ml; i++)
-		{
-			newmsg[i] = (char)(mesg[i]^key);
-		}
-
-		return new String(newmsg);
 	}
 }
